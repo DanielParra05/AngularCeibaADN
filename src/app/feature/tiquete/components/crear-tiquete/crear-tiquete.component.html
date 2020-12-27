@@ -1,3 +1,59 @@
-<p>
-  crear.tiquete works!
-</p>
+<!-- ****** Breadcumb Area Start ****** -->
+<div class="breadcumb-area" style="background-image: url(../../../../assets/img/bg-parking_management.jpg);">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12">
+        <div class="bradcumb-title text-center">
+          <h2>{{titulo}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+<!-- Inicio de card con el form-->
+<br/>
+<div class="container">
+    <div class="card border-dark" style="margin-bottom: 2%; margin-top: 0.5%;">
+      <div class="card-header bg-dark text-white" style="text-align: center; font-weight: bold;">CREAR TIQUETE</div>
+      <div class="card-body">
+        <form #tiqueteParqueoForm="ngForm" >
+          <div class="container">
+            <div class="row">
+            <!--PLACA VEHICULO-->
+              <div class="form-group col-sm">
+                <label for="placaVehiculo" style="font-weight: bold;" class="col-form-label">Placa del Vehiculo:</label>
+                <div class="col-sm-6"></div>
+                <input type="text" class="form-control" [(ngModel)]="tiqueteParqueo.placaVehiculo" name="placaVehiculo" required #placaVehiculo="ngModel">
+                <div class="alert alert-danger" *ngIf="placaVehiculo.invalid && (placaVehiculo.dirty || placaVehiculo.touched)"
+                  style="width:100%">
+                  <div *ngIf="placaVehiculo?.errors?.required" style="width:100%">
+                    La placa del Vehiculo es requerida
+                  </div>
+                </div>            
+              </div>
+            <!--TIPO VEHICULO-->
+              <div class="form-group col-sm">
+                <label for="tipoVehiculo" style="font-weight: bold;" class="col-form-label">Tipo Vehiculo:</label>
+                <div class="col-sm-6"></div>
+                <select class="form-control" [(ngModel)]="tiqueteParqueo.tipoVehiculo" name="tipoVehiculo" required #tipoVehiculo="ngModel">
+                  <option value="Moto">Moto</option>
+                  <option value="Carro">Carro</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="tipoVehiculo.invalid && (tipoVehiculo.dirty || tipoVehiculo.touched)"
+                style="width:100%">
+                <div *ngIf="tipoVehiculo?.errors?.required" style="width:100%">
+                  El tipo de vehiculo es requerido
+                </div>
+              </div> 
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <a class="btn btn-dark btn-lg" [routerLink]="['/listar-tiquetes']" style="margin-right: 1%;">Volver</a>
+            <button class="btn btn-primary btn-lg" style="margin-left: 1%;" role="button" (click)='create()' [disabled]="!tiqueteParqueoForm.form.valid">Crear</button>
+          </div>
+      </form>
+    </div>
+  </div>
+

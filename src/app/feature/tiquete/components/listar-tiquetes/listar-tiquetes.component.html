@@ -5,55 +5,61 @@
     <div class="row h-100 align-items-center">
       <div class="col-12">
         <div class="bradcumb-title text-center">
-          <h2>Tiquetes</h2>
+          <h2>{{titulo}}</h2>
         </div>
       </div>
     </div>
   </div>
 </div>
 <br/>
-<!-- ****** Breadcumb Area End ******
+<!-- ****** Breadcumb Area End ******-->
 <div class="container">
   <div class="card border-dark" style="margin-bottom: 2%; margin-top: 0.5%;">
 
     <div class="card-body text-primary">
       <div class="my-2 text-center">
-        <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/clientes/form']">Crear Tiquete</button>
+        <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/crear-tiquetes']">Crear Tiquete</button>
       </div>
-    <div class="input-group mb-3">
+    <!--<div class="input-group mb-3">
         <input type="text" [(ngModel)]="campoBusquedaTemp" class="form-control" placeholder="(Nombre o C&#233;dula)" aria-label="Recipient's username"
           aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-outline-success" (click)='buscar()' type="button">Buscar</button>
           <button class="btn btn-outline-danger" (click)='limpiar()' type="button">Limpiar</button>
         </div>
-      </div>-
+      </div>-->
       <div class="table-responsive">
-        <table id="table" class="table table-bordered table-striped" *ngIf="clientes?.length>0">
+        <table id="table" class="table table-bordered table-striped" *ngIf="tiquetes?.length>0">
           <thead class="thead-dark">
             <tr>
-              <th style="text-align: center">Nombre</th>
-              <th style="text-align: center">Apellido</th>
-              <th style="text-align: center">Cedula</th>
-              <th style="text-align: center">Telefono</th>
+              <th style="text-align: center">Placa</th>
+              <th style="text-align: center">Tipo Vehiculo</th>
+              <th style="text-align: center">Ingreso</th>
+              <th style="text-align: center">Salida</th>
+              <th style="text-align: center">Valor a Pagar</th>
               <th style="text-align: center">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cliente of clientes">
-              <td class="text-center" style="color: black">{{cliente.nombre}}</td>
-              <td class="text-center" style="color: black">{{cliente.apellido}}</td>
-              <td class="text-center" style="color: black">{{cliente.cedula}}</td>
-              <td class="text-center" style="color: black">{{cliente.telefono}}</td>
+            <tr *ngFor="let tiquete of tiquetes">
+              <td class="text-center" style="color: black">{{tiquete.placaVehiculo}}</td>
+              <td class="text-center" style="color: black">{{tiquete.tipoVehiculo}}</td>
+              <td class="text-center" style="color: black">{{tiquete.fechaIngreso}}</td>
+              <td class="text-center" style="color: black">{{tiquete.fechaSalida}}</td>
+              <td class="text-center" style="color: black">{{tiquete.valorAPagar}}</td>
               <td>
                 <div class="row">
                   <div class="col text-center">
-                    <div><a [routerLink]="['/clientes/form/', cliente.id]"><img class="iconosTamanio"
+                    <div><a [routerLink]="['/clientes/form/', tiquete.id]"><img class="iconosTamanio"
                           src="../../../../assets/img/iconos/edit.png"></a></div>
                   </div>
                   <div class="col text-center">
-                    <div><a style="cursor: pointer" (click)='delete(cliente)'><img class="iconosTamanio"
+                    <div><a style="cursor: pointer" (click)='delete()'><img class="iconosTamanio"
                           src="../../../../assets/img/iconos/delete.png"></a></div>
+                  </div>
+                  <div class="col text-center">
+                    <div><a style="cursor: pointer" (click)='delete()'><img class="iconosTamanio"
+                          src="../../../../assets/img/iconos/salida.png"></a></div>
                   </div>
                 </div>
               </td>
@@ -61,9 +67,9 @@
           </tbody>
         </table>
       </div>  
-      <div *ngIf="clientes?.length==0" class="alert alert-info">
+      <div *ngIf="tiquetes?.length==0" class="alert alert-info">
         No hay registros en la base de datos.
       </div>
     </div>
   </div>
-</div> -->
+</div>

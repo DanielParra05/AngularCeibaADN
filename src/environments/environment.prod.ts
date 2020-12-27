@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endpoint: '/prospectos-vida'
+  url_api_tiquetes:'http://localhost:8080/parking/tiquetes-parqueo'
 };
