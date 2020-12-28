@@ -41,15 +41,15 @@
               <td class="text-center" style="color: black">{{tiquete.valorAPagar == 0 ? '--': '$'+tiquete.valorAPagar}}</td>
               <td>
                 <div class="row">
-                  <div class="col text-center">
-                    <div><a [routerLink]="['/crear-actualizar-tiquetes', tiquete.id]"><img class="iconosTamanio"
+                  <div *ngIf="tiquete.fechaSalida == null" class="col text-center">
+                    <div ><a [routerLink]="['/crear-actualizar-tiquetes', tiquete.id]"><img class="iconosTamanio"
                           src="../../../../assets/img/iconos/edit.png"></a></div>
                   </div>
                   <div class="col text-center">
                     <div><a style="cursor: pointer" (click)='eliminarConfirmacion(tiquete)'><img class="iconosTamanio"
                           src="../../../../assets/img/iconos/delete.png"></a></div>
                   </div>
-                  <div class="col text-center">
+                  <div *ngIf="tiquete.fechaSalida == null" class="col text-center">
                     <div><a style="cursor: pointer" (click)='cerrarTiqueteConfirmacion(tiquete)'><img class="iconosTamanio"
                           src="../../../../assets/img/iconos/salida.png"></a></div>
                   </div>
