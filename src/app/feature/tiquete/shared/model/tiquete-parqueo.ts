@@ -1,8 +1,8 @@
 export class TiqueteParqueo {
-	id: Number;
+	id: number;
 	placaVehiculo: String;
 	tipoVehiculo: String;
 	fechaIngreso: Date;
 	fechaSalida: String;
-	valorAPagar: Number;
+	valorAPagar: number;
 }

@@ -24,7 +24,7 @@
               <div class="form-group col-sm">
                 <label for="placaVehiculo" style="font-weight: bold;" class="col-form-label">Placa del Vehiculo:</label>
                 <div class="col-sm-6"></div>
-                <input type="text" class="form-control" [(ngModel)]="tiqueteParqueo.placaVehiculo" name="placaVehiculo" required #placaVehiculo="ngModel">
+                <input oninput="this.value = this.value.toUpperCase()" type="text" class="form-control" [(ngModel)]="tiqueteParqueo.placaVehiculo" name="placaVehiculo" required #placaVehiculo="ngModel">
                 <div class="alert alert-danger" *ngIf="placaVehiculo.invalid && (placaVehiculo.dirty || placaVehiculo.touched)"
                   style="width:100%">
                   <div *ngIf="placaVehiculo?.errors?.required" style="width:100%">
@@ -51,9 +51,13 @@
           </div>
           <div class="text-center">
             <a class="btn btn-dark btn-lg" [routerLink]="['/listar-tiquetes']" style="margin-right: 1%;">Volver</a>
-            <button class="btn btn-primary btn-lg" style="margin-left: 1%;" role="button" (click)='create()' [disabled]="!tiqueteParqueoForm.form.valid">Crear</button>
+            <button *ngIf="!tiqueteParqueo.id; else elseBlock" class="btn btn-primary btn-lg" style="margin-left: 1%;" role="button" (click)='create()' [disabled]="!tiqueteParqueoForm.form.valid">Crear</button>
+            <ng-template #elseBlock>
+              <button class="btn btn-primary btn-lg" style="margin-left: 1%;" role="button" (click)='update()' [disabled]="!tiqueteParqueoForm.form.valid">Actualizar</button>
+            </ng-template>
           </div>
       </form>
     </div>
   </div>
+</div>
 

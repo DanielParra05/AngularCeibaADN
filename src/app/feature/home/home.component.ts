@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-
+  titulo : String = "Bienvenido a Parking Tickets";
   constructor() { }
 
   ngOnInit() {
