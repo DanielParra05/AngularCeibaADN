@@ -18,7 +18,7 @@
 
     <div class="card-body text-primary">
       <div class="my-2 text-center">
-        <button class="btn btn-primary btn-lg" type="button" [routerLink]="['/crear-actualizar-tiquetes']">Crear Tiquete</button>
+        <button id="crearActualizarTiquetes" class="btn btn-primary btn-lg" type="button" [routerLink]="['/crear-actualizar-tiquetes']">Crear Tiquete</button>
       </div>
       <div class="table-responsive">
         <table id="table" class="table table-bordered table-striped" *ngIf="tiquetes?.length>0">
@@ -59,7 +59,7 @@
           </tbody>
         </table>
       </div>  
-      <div *ngIf="tiquetes?.length==0" class="alert alert-info">
+      <div id="divNoRegistros" *ngIf="tiquetes?.length==0" class="alert alert-info">
         No hay registros en la base de datos.
       </div>
     </div>
