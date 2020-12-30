@@ -41,9 +41,9 @@ export class TiqueteService {
 
   public update(tiqueteParqueo: TiqueteParqueo): Observable<any> {
     return this.http.put<any>(`${environment.url_api_tiquetes}/${tiqueteParqueo.id}`, tiqueteParqueo, { headers: this.httpHeaders }).pipe(
-      catchError(e => {
-        this.router.navigate(['/listar-tiquetes']);
+      catchError(e => {        
         swal.fire('Error al actualizar', e.error.mensaje, 'error');
+        this.redirectTo('listar-tiquetes');
         return throwError(e);
       })
     );    
@@ -57,5 +57,16 @@ export class TiqueteService {
         return throwError(e);
       })
     );
+  }
+
+  /**
+   * Redirige a una determinada uri sin importar si el navegador actualmente se encuentra 
+   * en la misma uri
+   * @param uri 
+   */
+  redirectTo(uri: string) {
+    this.router
+      .navigateByUrl("/", { skipLocationChange: true })
+      .then(() => this.router.navigate([uri]));
   }
 }

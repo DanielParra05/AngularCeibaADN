@@ -7,6 +7,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { HeaderComponent } from 'src/app/feature/header/header.component';
 import { TiqueteModule } from './feature/tiquete/tiquete.module';
+import { TarifarioModule } from './feature/tarifario/tarifario.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TiqueteModule } from './feature/tiquete/tiquete.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    TiqueteModule
+    TiqueteModule,
+    TarifarioModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],
