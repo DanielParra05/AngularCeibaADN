@@ -32,6 +32,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new HtmlReporter({
       baseDirectory: 'tmp/screenshots'
    }).getJasmine2Reporter());
-    
+   // @ts-ignore --> Wait para cada instruccion
+   browser.manage().timeouts().implicitlyWait(10000);
   }
 };

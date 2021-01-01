@@ -33,7 +33,7 @@ export class GestionarTarifaComponent implements OnInit {
 
   public eliminarTarifa(tarifa: Tarifa) {
     Swal.fire({
-      title: "¿Desea eliminar la tarifa de " + tarifa.llave + "?",
+      title: `¿Desea eliminar la tarifa de ${tarifa.llave}?`,
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: `Si`,

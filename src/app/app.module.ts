@@ -3,11 +3,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { HeaderComponent } from 'src/app/feature/header/header.component';
-import { TiqueteModule } from './feature/tiquete/tiquete.module';
-import { TarifarioModule } from './feature/tarifario/tarifario.module';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +15,7 @@ import { TarifarioModule } from './feature/tarifario/tarifario.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
-    TiqueteModule,
-    TarifarioModule
+    CoreModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

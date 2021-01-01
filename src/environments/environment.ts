@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  url_api_trm:'http://localhost:8080/parking/trm',
-  url_api_tiquetes:'http://localhost:8080/parking/tiquetes-parqueo',
-  url_api_tarifario:'http://localhost:8080/parking/tarifario',
+  url_api_trm:'/parking-tickets/parking/trm',
+  url_api_tiquetes:'/parking-tickets/parking/tiquetes-parqueo',
+  url_api_tarifario:'/parking-tickets/parking/tarifario',
 };
 
 /*

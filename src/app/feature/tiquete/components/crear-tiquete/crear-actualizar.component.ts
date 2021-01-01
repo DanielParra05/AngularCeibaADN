@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { TiqueteParqueo } from "../../shared/model/tiquete-parqueo";
 import { TiqueteService } from "../../shared/service/tiquete.service";
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -28,26 +28,19 @@ export class CrearTiqueteComponent implements OnInit {
   }
 
   public create(): void {
-    this.tiqueteParqueo.fechaIngreso = this.getCurrentDateWithJavaLocalDateTimeFormat();
     this.tiqueteService.create(this.tiqueteParqueo).subscribe(
       () => {
         this.router.navigate(['/listar-tiquetes']);
-        swal.fire('El tiquete ha sido guardado', 'El tiquete ha sido creado con exito!', 'success');
+        Swal.fire('El tiquete ha sido guardado', 'El tiquete ha sido creado con exito!', 'success');
       }
     );
   }
 
   update(): void {
-    this.tiqueteService.update(this.tiqueteParqueo).subscribe(
+    this.tiqueteService.update(this.tiqueteParqueo, false).subscribe(
       () => {
         this.router.navigate(['/listar-tiquetes']);
-       swal.fire('Tiquete actualizado!',  'Tiquete de placa '+this.tiqueteParqueo.placaVehiculo+' actualizado correctamente!', 'success');
+       Swal.fire('Tiquete actualizado!',  `Tiquete de placa ${this.tiqueteParqueo.placaVehiculo} actualizado correctamente!`, 'success');
       });
-  }
-
-  private getCurrentDateWithJavaLocalDateTimeFormat(): any{
-    var currentDate = new Date();
-    var currentDateFormat = new Date(currentDate.getTime() - (currentDate.getTimezoneOffset() * 60000)).toISOString().replace("T"," ").split(".")[0];
-    return currentDateFormat;
   }
 }

@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
+import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 
@@ -10,6 +11,7 @@ export class ManejadorError implements ErrorHandler {
   handleError(error: string | Error): void {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
+    Swal.fire("Error", mensajeError.error.mensaje, 'error');
   }
 
   private mensajePorDefecto(error) {

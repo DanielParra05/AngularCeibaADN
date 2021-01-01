@@ -4,7 +4,10 @@ import { GestionarTarifaComponent } from './components/gestionar-tarifa/gestiona
 
 
 const routes: Routes = [
-  {path: 'gestionar-tarifa', component: GestionarTarifaComponent}
+ {
+   path:'',
+   component: GestionarTarifaComponent
+ }
 ];
 
 @NgModule({

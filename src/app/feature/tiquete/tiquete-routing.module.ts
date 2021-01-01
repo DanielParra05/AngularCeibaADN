@@ -5,9 +5,10 @@ import { CrearTiqueteComponent } from './components/crear-tiquete/crear-actualiz
 
 
 const routes: Routes = [
+      {path:'', component:ListarTiquetesComponent},
       {path: 'crear-actualizar-tiquetes',  component: CrearTiqueteComponent },
       {path: 'crear-actualizar-tiquetes/:id',  component: CrearTiqueteComponent },
-      { path: 'listar-tiquetes', component: ListarTiquetesComponent}
+      
 ];
 
 @NgModule({

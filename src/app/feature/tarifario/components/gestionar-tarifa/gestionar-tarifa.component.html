@@ -18,7 +18,7 @@
     <div class="card-body text-primary">
       <div class="my-2 text-center">
         <!-- Button trigger modal -->
-        <button type="button" (click)='limpiarTarifaSeleccionadaEnModal()' class="btn btn-primary" data-toggle="modal"
+        <button id="btnCrearTarifa" type="button" (click)='limpiarTarifaSeleccionadaEnModal()' class="btn btn-primary btn-lg" data-toggle="modal"
           data-target="#modalCrearActualizar">
           Crear Tarifa
         </button>
@@ -59,7 +59,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- MODAL DE ACTUALIZAR Y CREAR-->
 <div class="modal fade" id="modalCrearActualizar" tabindex="-1" role="dialog"
@@ -111,13 +110,12 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button id="btnEliminar" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <!--<button id="btnCrearActualizar" type="button" class="btn btn-primary" (click)='create()'>Guardar</button>-->
-          <button id="crearTiquete" *ngIf="!tarifaCrearActualizar.id; else elseBlock" class="btn btn-primary"
-            style="margin-left: 1%;" role="button" (click)='create()' [disabled]="!tarifaForm.valid">Crear</button>
+          <button id="btnCerrarModal" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button id="crearTarifa" *ngIf="!tarifaCrearActualizar.id; else elseBlock" class="btn btn-primary"
+            style="margin-left: 1%;" role="button" (click)='create()' [disabled]="!tarifaForm.valid" data-dismiss="modal">Crear</button>
           <ng-template #elseBlock>
-            <button id="actualizarTiquete" class="btn btn-primary" style="margin-left: 1%;" role="button"
-              [disabled]="!tarifaForm.valid" (click)='update()'>Actualizar</button>
+            <button id="actualizarTarifa" class="btn btn-primary" style="margin-left: 1%;" role="button"
+              [disabled]="!tarifaForm.valid" (click)='update()' data-dismiss="modal">Actualizar</button>
           </ng-template>
         </div>
       </form>
