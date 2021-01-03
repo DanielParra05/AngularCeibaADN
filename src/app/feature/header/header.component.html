@@ -6,16 +6,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li *ngIf="loginService.isAuthenticated()" class="nav-item">
         <a class="nav-link" href="/listar-tiquetes">Gestión de Tiquetes</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="loginService.isAuthenticated()" class="nav-item">
         <a class="nav-link" href="/gestionar-tarifa">Tarifario</a>
       </li>
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+
+      <button *ngIf="loginService.isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0" type="button" (click)="logout()" onclick="location.href = '/login';">Logout</button>
+      <button *ngIf="!loginService.isAuthenticated()" class="btn btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href = '/login';">Login</button>
     </form>
   </div>
 </nav>

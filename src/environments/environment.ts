@@ -7,6 +7,7 @@ export const environment = {
   url_api_trm:'/parking-tickets/parking/trm',
   url_api_tiquetes:'/parking-tickets/parking/tiquetes-parqueo',
   url_api_tarifario:'/parking-tickets/parking/tarifario',
+  url_auth:'/parking-tickets/parking/oauth/token',
 };
 
 /*
