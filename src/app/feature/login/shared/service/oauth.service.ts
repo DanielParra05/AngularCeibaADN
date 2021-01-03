@@ -9,7 +9,7 @@ const TOKEN = "token";
 @Injectable({
   providedIn: "root",
 })
-export class LoginService {
+export class OAuthService {
   private _usuario: Usuario;
   private _token: string;
 

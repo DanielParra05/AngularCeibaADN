@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { Usuario } from "../../shared/model/usuario";
-import { LoginService } from "../../shared/service/login.service";
+import { OAuthService } from "../../shared/service/oauth.service";
 
 @Component({
   selector: "app-login",
@@ -12,17 +12,15 @@ import { LoginService } from "../../shared/service/login.service";
 export class LoginComponent implements OnInit {
   usuario: Usuario = new Usuario();
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private oauthService: OAuthService, private router: Router) {}
 
   ngOnInit() {
-    if(this.loginService.isAuthenticated()) {
+    if(this.oauthService.isAuthenticated()) {
       this.router.navigate(['home']);
     }
    }
 
   public login(): void {
-    console.log(this.usuario);
-
     if (this.usuario.username == null || this.usuario.password == null || this.usuario.username.trim() == "" || this.usuario.password.trim() == "") {
       Swal.fire({
         position: "top-end",
@@ -33,10 +31,9 @@ export class LoginComponent implements OnInit {
       });
       return;
     }
-
-    this.loginService.login(this.usuario).subscribe((response) => {
-      this.loginService.guardarToken(response.access_token);
-      this.loginService.guardarUsuario(response.access_token);
+      this.oauthService.login(this.usuario).subscribe((response) => {
+      this.oauthService.guardarToken(response.access_token);
+      this.oauthService.guardarUsuario(response.access_token);
 
       this.router.navigate(["home"]);
       Swal.fire({

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { LoginService } from '../login/shared/service/login.service';
+import { OAuthService } from '../login/shared/service/oauth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +7,13 @@ import { LoginService } from '../login/shared/service/login.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public loginService : LoginService) { }
+  constructor(public oauthService : OAuthService) { }
 
   ngOnInit() {
   }
 
   logout() : void{
-    this.loginService.logout();
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Sesion finalizada!",
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    this.oauthService.logout();
   }
 
 }

@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
-
+import { OAuthService } from 'src/app/feature/login/shared/service/oauth.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private cookieService: CookieService) { }
+  constructor(private authService : OAuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
-    const token = this.cookieService.get('token');
+    let token = this.authService.token;
 
     if (token) {
       const authReq = req.clone({

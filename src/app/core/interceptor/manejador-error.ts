@@ -1,16 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 
-const UNAUTHORIZED = 401;
-
 @Injectable()
 export class ManejadorError implements ErrorHandler {
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   handleError(error: string | Error): void {
     const mensajeError = this.mensajePorDefecto(error);
@@ -26,9 +23,6 @@ export class ManejadorError implements ErrorHandler {
         return HTTP_ERRORES_CODIGO.NO_HAY_INTERNET;
       }
       if (error.hasOwnProperty('status') && !error.error.hasOwnProperty('mensaje')) {
-        if(error.status == UNAUTHORIZED){
-        this.router.navigate(['/login']);
-        }
         return this.obtenerErrorHttpCode(error.status);
       }
     }
