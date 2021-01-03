@@ -6,9 +6,7 @@ import { Usuario } from "../model/usuario";
 
 const TOKEN = "token";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class OAuthService {
   private _usuario: Usuario;
   private _token: string;

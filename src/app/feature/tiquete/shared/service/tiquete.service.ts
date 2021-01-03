@@ -6,9 +6,7 @@ import { catchError, map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { TiqueteParqueo } from "../model/tiquete-parqueo";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class TiqueteService {
   private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
 

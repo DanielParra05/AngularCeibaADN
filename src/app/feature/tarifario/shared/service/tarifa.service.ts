@@ -6,9 +6,7 @@ import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { Tarifa } from "../model/tarifa";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class TarifaService {
   private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
 

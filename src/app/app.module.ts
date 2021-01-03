@@ -7,6 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HeaderComponent } from 'src/app/feature/header/header.component';
 import { CoreModule } from '@core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { OAuthService } from './feature/login/shared/service/oauth.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, OAuthService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
