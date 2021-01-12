@@ -15,7 +15,7 @@ describe("workspace-project Tiquete", () => {
   });
 
   it("Deberia crear tiquete", () => {
-    const PLACA_VEHICULO = "KDL100";
+    const PLACA_VEHICULO = "KDL1003";
 
     header.clickLinkGestionTiquete();
     tiquete.clickIraCrearTiquete();
@@ -30,7 +30,7 @@ describe("workspace-project Tiquete", () => {
   });
 
   it("Deberia actualizar tiquete", () => {
-    const PLACA_VEHICULO = "KDL102";
+    const PLACA_VEHICULO = "KDL1002";
 
     tiquete.clickLinkEditarPrimeraFila();
     tiquete.ingresarPlaca(PLACA_VEHICULO);
