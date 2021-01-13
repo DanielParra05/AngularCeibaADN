@@ -1,13 +1,13 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+const IP_API="http://localhost:8080";
 
 export const environment = {
   production: false,
-  url_api_trm:'/parking-tickets/parking/trm',
-  url_api_tiquetes:'/parking-tickets/parking/tiquetes-parqueo',
-  url_api_tarifario:'/parking-tickets/parking/tarifario',
-  url_auth:'/parking-tickets/parking/oauth/token',
+  url_api_tiquetes:`${IP_API}/parking/tiquetes-parqueo`,
+  url_api_tarifario:`${IP_API}/parking/tarifario`,
+  url_auth:`${IP_API}/parking/oauth/token`,
 };
 
 /*
