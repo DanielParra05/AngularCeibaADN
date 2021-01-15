@@ -1,7 +1,8 @@
+const IP_API="http://20.197.217.238:8080/parking";
+
 export const environment = {
   production: true,
-  url_api_trm:'http://localhost:8080/parking/trm',
-  url_api_tiquetes:'http://localhost:8080/parking/tiquetes-parqueo',
-  url_api_tarifario:'http://localhost:8080/parking/tarifario',
-  url_auth:'http://localhost:8080/parking/oauth/token',
+  url_api_tiquetes:`${IP_API}/tiquetes-parqueo`,
+  url_api_tarifario:`${IP_API}/tarifario`,
+  url_auth:`${IP_API}/oauth/token`,
 };

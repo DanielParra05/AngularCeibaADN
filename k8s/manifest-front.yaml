@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adn-parking-front
+  namespace: prueba-concepto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adn-parking-front
+  template:
+    metadata:
+      labels:
+        app: adn-parking-front
+    spec:
+      containers:
+        - name: parking-docker-front-kb
+          image: parkingimages.azurecr.io/parking-docker-front-kb
+          ports:
+            - containerPort: 4200
+          resources:
+            limits: 
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adn-parking-front
+  namespace: prueba-concepto
+spec:
+  type: LoadBalancer
+  selector:
+    app: adn-parking-front
+  ports:
+    - port: 4200
+      protocol: TCP
+      targetPort: 4200
